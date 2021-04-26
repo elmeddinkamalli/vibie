@@ -609,7 +609,7 @@ class TracksController extends Controller
         $fileNameWithUpload = null;
         if($request->file('cover')){
             $image       = $request->file('cover');
-            $fileNameWithUpload    = '/img/blogs/'.Str::slug($request->title).'-'.time().'.'.$request->cover->extension();
+            $fileNameWithUpload    = '/images/'.Str::slug($request->title).'-'.time().'.'.$request->cover->extension();
             $image_resize = Image::make($image->getRealPath());
             $image_resize->save(public_path($fileNameWithUpload));
         };
