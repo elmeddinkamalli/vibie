@@ -31,6 +31,9 @@ export default class Register extends Component {
                 email: this.state.email,
                 password: this.state.password,
                 password_confirmation: this.state.password_confirmation,
+            },
+            headers: {
+                'X-CSRF-TOKEN': document.getElementById('csrf_token').getAttribute('content')
             }
         };
         axios(options)
