@@ -273,46 +273,46 @@ class TracksController extends Controller
     function get_the_user($username){
         $artist = User::where('username', $username)->withCount('tracks')->with('blogs')->with('followers')->withCount('followings')->withCount('followers')->first();
         $this->user_ids = array();
-        if($artist->followers){
+        if($artist){
             $artist->followers->map(function($follower){
                 return array_push($this->user_ids, $follower->follower);
             });
-        }
-        $last_followers = User::select('username', 'avatar')->whereIn('id',$this->user_ids)->get()->take(5);
-        $tracks = Tracks::where('user_id', $artist->id)->orderBy('created_at', 'DESC')->get();
-        $albums = Albums::where('user_id', $artist->id)->orderBy('created_at', 'DESC')->get();
-        if(auth()->user()){
-            $user_id = auth()->user()->id;
+            $last_followers = User::select('username', 'avatar')->whereIn('id',$this->user_ids)->get()->take(5);
+            $tracks = Tracks::where('user_id', $artist->id)->orderBy('created_at', 'DESC')->get();
+            $albums = Albums::where('user_id', $artist->id)->orderBy('created_at', 'DESC')->get();
+            if(auth()->user()){
+                $user_id = auth()->user()->id;
 
-            $follow = Follows::select('id')->where('following',$artist->id)->where('follower',$user_id)->first();
-            if($follow){
-                $following = array('follow' => true);
-                $artist = array_merge(collect($artist)->toArray(), $following);
-            }
+                $follow = Follows::select('id')->where('following',$artist->id)->where('follower',$user_id)->first();
+                if($follow){
+                    $following = array('follow' => true);
+                    $artist = array_merge(collect($artist)->toArray(), $following);
+                }
 
-            if($tracks){
-                $tracks = $tracks->map(function($track)use($user_id){
-                    return $this->isLiked(collect($track)->toArray(), $user_id);
-                });
-                $tracks = $tracks->map(function($track)use($user_id){
-                    return $this->isSaved(collect($track)->toArray(), $user_id);
-                });
+                if($tracks){
+                    $tracks = $tracks->map(function($track)use($user_id){
+                        return $this->isLiked(collect($track)->toArray(), $user_id);
+                    });
+                    $tracks = $tracks->map(function($track)use($user_id){
+                        return $this->isSaved(collect($track)->toArray(), $user_id);
+                    });
+                }
+                if($albums){
+                    $albums = $albums->map(function($album)use($user_id){
+                        return $this->isLiked(collect($album)->toArray(), $user_id, true);
+                    });
+                    $albums = $albums->map(function($album)use($user_id){
+                        return $this->isSaved(collect($album)->toArray(), $user_id, true);
+                    });
+                }
             }
-            if($albums){
-                $albums = $albums->map(function($album)use($user_id){
-                    return $this->isLiked(collect($album)->toArray(), $user_id, true);
-                });
-                $albums = $albums->map(function($album)use($user_id){
-                    return $this->isSaved(collect($album)->toArray(), $user_id, true);
-                });
-            }
+            return array(
+                'artist' => $artist,
+                'tracks' => $tracks,
+                'albums' => $albums,
+                'last_followers'=>array_reverse($last_followers->toArray())
+            );
         }
-        return array(
-            'artist' => $artist,
-            'tracks' => $tracks,
-            'albums' => $albums,
-            'last_followers'=>array_reverse($last_followers->toArray())
-        );
     }
 
     function get_tracks_spesific(Request $request){
