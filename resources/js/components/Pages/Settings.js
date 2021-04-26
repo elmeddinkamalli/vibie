@@ -136,6 +136,7 @@ export default class Settings extends Component {
 
             post('api/user/update',formData,config)
             .then(res=>{
+                console.log(res);
                 if(res.status===200 && res.data === 'updated'){
                     this.props.setLoading(false);
                     window.location.reload();
@@ -147,6 +148,7 @@ export default class Settings extends Component {
                 }
             })
             .catch(err=>{
+                console.log(err);
                 if(err.response.status === 422){
                     let errors = Object.keys(err.response.data.errors).map((key)=>{
                         if(err.response.data.errors[key].length){
