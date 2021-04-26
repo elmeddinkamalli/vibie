@@ -34,7 +34,7 @@ export default class Login extends Component {
         axios(options)
         .then(res => {
             if(res.data.message === "Success"){
-                window.location.href = "http://localhost:8000/";
+                window.location.href = "https://vibie.herokuapp.com/";
             }else{
                 var error  = Array();
                 error['all'] = "Something went wrong. Refresh the page and try again.";
