@@ -45,6 +45,6 @@ class App extends Component{
     }
 }
 if (root) {
-    axios.defaults.baseURL = "https://immense-sands-12970.herokuapp.com/";
+    axios.defaults.baseURL = "https://vibie.herokuapp.com/";
     ReactDOM.render(<App />, root)
 }
