@@ -150,7 +150,7 @@ class SingleUser extends Component {
                     'Access-Control-Allow-Origin': '*'
                 }
             }
-            post(url, formData,config)
+            axios.post(url, formData,config)
             .then(res=>{
                 console.log(res);
                 //window.location.reload();
