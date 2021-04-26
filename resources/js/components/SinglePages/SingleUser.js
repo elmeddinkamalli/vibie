@@ -146,7 +146,8 @@ class SingleUser extends Component {
             const config = {
                 headers: {
                     'content-type': 'multipart/form-data',
-                    'Access-Control-Allow-Credentials': true
+                    'Access-Control-Allow-Credentials': true,
+                    'Access-Control-Allow-Origin': '*'
                 }
             }
             post(url, formData,config)
