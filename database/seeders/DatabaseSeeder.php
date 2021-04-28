@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             //BlogSeeder::class,
             GenreSeeder::class,
             AlbumSeeder::class,
-            //TracksSeeder::class,
+            TracksSeeder::class,
         ]);
     }
 }
