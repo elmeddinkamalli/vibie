@@ -33,6 +33,7 @@
         "react-image-crop": "^8.6.6",
         "react-ionicons": "^4.2.0",
         "react-router-dom": "^5.2.0",
+        "react-simple-file-upload": "^0.1.1",
         "react-spinners": "^0.10.6",
         "react-spring": "^9.1.0",
         "styled-components": "^5.2.1",

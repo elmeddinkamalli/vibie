@@ -67,7 +67,7 @@ export default class Login extends Component {
     render() {
         return (
             <div className="mainWrapper">
-                <div className="loginPage" onClick={this.show}>
+                <div className="loginPage">
                     <h4 className="title">LOG IN</h4>
                     <a href="/" className="brandName"><h4>vibie</h4></a>
                     {this.state.errors ? 

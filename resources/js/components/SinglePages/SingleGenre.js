@@ -18,7 +18,6 @@ class SingleGenre extends Component {
             slug: this.props.slug,
             isMount: true,
         }
-        this.show = this.show.bind(this);
         this.loadMore = this.loadMore.bind(this);
         this.setFirsData = this.setFirsData.bind(this);
     }
@@ -82,14 +81,9 @@ class SingleGenre extends Component {
         window.removeEventListener('scroll', this.loadMore, false);
     }
 
-    show(){
-        console.log(this.props.data);
-        console.log(this.state.genre);
-    }
-
     render(){
         return (
-            <div className="mainWrapper" onClick={this.show}>
+            <div className="mainWrapper">
                 <Loading loading={this.props.loading} />
                 {this.state.genre ? 
                 <section className="singleTrack" style={{backgroundImage: `url(${window.location.origin + '/img/track-bg.webp'})`}}>

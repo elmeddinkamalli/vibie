@@ -21,7 +21,6 @@ class SingleAlbum extends Component {
             delete_id: null,
             isMount: true,
         }
-        this.show = this.show.bind(this);
         this.setPlaylistToLocal = this.setPlaylistToLocal.bind(this);
         this.sendDeleteRequest = this.sendDeleteRequest.bind(this);
     }
@@ -91,13 +90,9 @@ class SingleAlbum extends Component {
         Delete(this.state.delete_id, 'album', this.props.setLoading, true);
     }
 
-    show(){
-        console.log(this.state.album);
-    }
-
     render(){
         return (
-            <div className="mainWrapper" onClick={this.show}>
+            <div className="mainWrapper">
                 <Loading loading={this.props.loading} />
                 {this.state.confirmation ? <div className="grayed-bg active">
                     <div className="shareOvrly active deleteConf">

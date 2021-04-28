@@ -17,14 +17,12 @@ export default class Settings extends Component {
             openCropper: false,
             cropperjs: null
         }
-        //this.setPlaylistToLocal = this.setPlaylistToLocal.bind(this);
         this.submitForm = this.submitForm.bind(this);
         this.showPreview = this.showPreview.bind(this);
         this.setReader = this.setReader.bind(this);
         this.openCropper = this.openCropper.bind(this);
         this.showCroppedImage = this.showCroppedImage.bind(this);
         this.closeCropper = this.closeCropper.bind(this);
-        this.show = this.show.bind(this);
     }
 
     componentDidMount(){
@@ -136,7 +134,6 @@ export default class Settings extends Component {
 
             post('api/user/update',formData,config)
             .then(res=>{
-                console.log(res);
                 if(res.status===200 && res.data === 'updated'){
                     this.props.setLoading(false);
                     window.location.reload();
@@ -148,7 +145,6 @@ export default class Settings extends Component {
                 }
             })
             .catch(err=>{
-                console.log(err);
                 if(err.response.status === 422){
                     let errors = Object.keys(err.response.data.errors).map((key)=>{
                         if(err.response.data.errors[key].length){
@@ -168,13 +164,9 @@ export default class Settings extends Component {
         }
     }
 
-    show(){
-        console.log(this.state.avatar);
-    }
-
     render() {
         return (
-            <div className="mainWrapper" onClick={this.show}>
+            <div className="mainWrapper">
                 <Loading loading={this.props.loading} />
                 {this.state.errors ? <Errors errors={this.state.errors} /> : ''}
                 <section className="userSection settings">

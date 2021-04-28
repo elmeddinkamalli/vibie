@@ -146,17 +146,13 @@ class SingleUser extends Component {
             const config = {
                 headers: {
                     'content-type': 'multipart/form-data',
-                    'Access-Control-Allow-Credentials': true,
-                    'Access-Control-Allow-Origin': '*'
                 }
             }
             post(url, formData,config)
             .then(res=>{
-                console.log(res);
-                //window.location.reload();
+                window.location.reload();
             })
             .catch(err=>{
-                console.log(err);
                 if(err.response.status === 422){
                     let errors = Object.keys(err.response.data.errors).map((key)=>{
                         if(err.response.data.errors[key].length){

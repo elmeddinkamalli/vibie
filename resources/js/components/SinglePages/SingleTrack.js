@@ -24,7 +24,6 @@ class SingleTrack extends Component {
             confirmation: false,
             delete_id: null
         }
-        this.show = this.show.bind(this);
         this.setPlaylistToLocal = this.setPlaylistToLocal.bind(this);
         this.componentDidMount = this.componentDidMount.bind(this);
         this.setSlug = this.setSlug.bind(this);
@@ -128,18 +127,13 @@ class SingleTrack extends Component {
         this.axiosCancelSource.cancel('Axios request canceled.');
     }
 
-    show(){
-        console.log(this.state.track);
-        console.log(this.state.related_tracks);
-    }
-
     sendDeleteRequest(){
         Delete(this.state.delete_id, 'track', this.props.setLoading, true);
     }
 
     render(){
         return (
-            <div className="mainWrapper" onClick={this.show}>
+            <div className="mainWrapper">
                 <Loading loading={this.props.loading} />
                 {this.state.confirmation ? <div className="grayed-bg active">
                     <div className="shareOvrly active deleteConf">
