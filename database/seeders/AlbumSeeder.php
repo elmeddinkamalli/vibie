@@ -25,5 +25,17 @@ class AlbumSeeder extends Seeder
             "created_at"=>"2021-04-28T06:15:10.000000Z",
             "updated_at"=>"2021-04-28T06:15:10.000000Z",
         ]);
+        \App\Models\Albums::insert([
+            "user_id"=>1,
+            "name"=>"Different World",
+            "artist"=>"Alan Walker",
+            "description"=>"Different World is the debut studio album by Norwegian record producer Alan Walker. It was released on 14 December 2018 through MER Musikk and Sony Music Entertainment and includes his successful 2015 single \"Faded\". The album also succeeds a trilogy of releases leading up to the album, entitled World of Walker, which consisted of the singles \"All Falls Down\", \"Darkside\" and \"Diamond Heart\".",
+            "slug"=>"different-world-alan-walker",
+            "cover"=>"/img/albums/different-world-1619599291.jpg",
+            "cover_big"=>"/img/albums/different-world-1619599291-big.jpg",
+            "popularity"=>"0",
+            "created_at"=>"2021-04-28T08:41:32.000000Z",
+            "updated_at"=>"2021-04-28T08:41:32.000000Z",
+        ]);
     }
 }

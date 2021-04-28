@@ -10359,7 +10359,7 @@ body {
 .rightAside {
   position: fixed;
   height: 100vh;
-  right: -350px;
+  right: -100%;
   width: 350px;
   background-color: #131722;
   display: flex;
