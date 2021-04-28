@@ -341,7 +341,7 @@ class SingleUser extends Component {
                         <img src={this.state.artist.avatar ? window.location.origin + this.state.artist.avatar : window.location.origin + '/img/users/default_avatar.jpg'} />
                         <h4>{this.state.artist.name}</h4>
                         <h5>{this.state.artist.username}</h5>
-                        <p>Musician</p>
+                        <p>{this.state.artist.about}</p>
                         {this.props.user && this.props.user.id === this.state.artist.id ?
                         <div className="userButtons">
                             <button onClick={(e)=>{this.setShareOverlay("track")}}><BiUpload />Share track</button>
