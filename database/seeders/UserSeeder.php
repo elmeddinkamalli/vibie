@@ -15,6 +15,7 @@ class UserSeeder extends Seeder
     {
         \App\Models\User::insert([
             'name'=>'Elmeddin Kamalli',
+            "avatar"=> "/img/users/elmeddin-1619600741.png",
             'username' =>'elmeddinkamalli',
             'email'=>'elmeddin@mail.com',
             'about'=>'I\'m just a developer',
