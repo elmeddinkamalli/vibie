@@ -1488,6 +1488,8 @@ body{
 
             img{
                 width: 100%;
+                min-height: 140px;
+                object-fit: cover;
                 transform: scale3d(1,1,1);
                 transition: transform .4s;
                 cursor: pointer;

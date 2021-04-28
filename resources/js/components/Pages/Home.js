@@ -21,7 +21,6 @@ class Home extends Component {
             popular_albums: null,
             isMount: true,
         }
-        this.show = this.show.bind(this);
     }
 
     componentDidMount(){
@@ -122,22 +121,12 @@ class Home extends Component {
         });
     }
 
-    show(){
-        console.log(this.props.currentTrack);
-        console.log(this.props.currentPlaylist);
-        console.log(this.state);
-        console.log(this.state.last_tracks);
-        console.log(this.state.popular_tracks);
-        localStorage.clear();
-        console.log(localStorage);
-    }
-
     render(){
         return (
             <div className="mainWrapper">
                 <Loading loading={this.props.loading} />
                 {this.state.popular_albums && this.state.popular_albums.length > 0 ? 
-                    <section className="homeTopSlider" onClick={this.show}>
+                    <section className="homeTopSlider">
                         <Carousel itemsToShow={1} pagination={false} enableTilt={true} >
                             {this.state.popular_albums.map((album, i)=>{
                                 return(<HomeTopSliderItem 

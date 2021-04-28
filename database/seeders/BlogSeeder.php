@@ -31,5 +31,14 @@ class BlogSeeder extends Seeder
             "created_at"=>"2021-04-28T09:09:34.000000Z",
             "updated_at"=>"2021-04-28T09:09:34.000000Z",
         ]);
+        \App\Models\Blog::insert([
+            "user_id"=>1,
+            "cover"=>null,
+            "title"=>"What is Vibie",
+            "slug"=>"what-is-vibie",
+            "description"=>"Vibi is a platform that you can share music with others. Also, you can create Albums and post blogs about music. This website is created by myself, Elmeddin Kamalli, a full-stack developer, as a part of my portfolio works. A design in themeforest.net is inspired me to code this website. Unfortunately, you can't upload any file here right now because of Heroku's file uploading system. This is not possible yet. Buy the website is working on local without any problem. You can free to check the source codes from my GitHub (elmeddinkamalli/vibie) account as well.",
+            "created_at"=>"2021-04-28T09:23:40.000000Z",
+            "updated_at"=>"2021-04-28T09:23:40.000000Z",
+        ]);
     }
 }
