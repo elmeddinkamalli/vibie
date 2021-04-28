@@ -10006,6 +10006,11 @@ h3 {
   height: 100%;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 body {
   background-color: #131722;
 }
