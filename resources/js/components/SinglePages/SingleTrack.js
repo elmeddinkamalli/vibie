@@ -49,7 +49,7 @@ class SingleTrack extends Component {
             .then((res)=>{
                 this.setState({
                     track: res.data.track,
-                    related_tracks: res.data.related_tracks
+                    related_tracks: res.data.related_tracks.reverse()
                 });
                 this.props.setLoading(false);
             })
