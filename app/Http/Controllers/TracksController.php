@@ -118,7 +118,7 @@ class TracksController extends Controller
         if($track){
             $related_tracks = Tracks::where(function ($q) use ($track, $slug) {
                 $q->where('slug', $slug)->orWhere('user_id', $track['user_id'])->orWhere('genre_id', $track['genre_id']);
-            })->orderByRaw("FIELD(id, ".$track['id'].")". " DESC")->get()->take(20);
+            })->orderByRaw("FIELD(id, ".(int)$track['id'].")". " DESC")->get()->take(20);
         }
 
         if(auth()->user()){
