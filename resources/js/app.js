@@ -48,5 +48,6 @@ if (root) {
     axios.defaults.baseURL = "https://vibie.herokuapp.com/";
     window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
     window.axios.defaults.headers.common['X-CSRF-TOKEN'] = window.Laravel.csrfToken;
+                console.log(window.Laravel.csrfToken);
     ReactDOM.render(<App />, root)
 }
