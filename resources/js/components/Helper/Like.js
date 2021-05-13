@@ -15,8 +15,7 @@ export default function Like(
             method: 'POST',
             headers: {
             'Accept': 'application/json',
-            'Content-Type': 'application/json;charset=UTF-8',
-            'X-CSRF-TOKEN': window.Laravel.csrfToken
+            'Content-Type': 'application/json;charset=UTF-8'
             },
             withCredentials: true,
             credentials: 'include',
