@@ -46,5 +46,6 @@ class App extends Component{
 }
 if (root) {
     axios.defaults.baseURL = "https://vibie.herokuapp.com/";
+    axios.defaults.headers.common['token'] = document.getElementById('csrf_token').getAttribute('content');
     ReactDOM.render(<App />, root)
 }
